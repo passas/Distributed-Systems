@@ -129,7 +129,8 @@ public class Bank
 
 		total = 0.0;
 
-		lock.lock();
+		for (int i=0; i<this.max_accounts; i++)
+			this.accounts[i].lock();
 		try
 		{	
 			for (int i=0; i<this.max_accounts; i++)
@@ -139,7 +140,8 @@ public class Bank
 		}
 		finally
 		{
-			lock.unlock();
+			for (int i=0; i<this.max_accounts; i++)
+				this.accounts[i].unlock();
 		}
 	}
 }
