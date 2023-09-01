@@ -48,7 +48,7 @@ public class Agreement
 
 			if ( my_ticket == 1 )
 				this.consensus = choice;
-			else if ( this.consensus < choice )
+			else if ( choice > this.consensus )
 				this.consensus = choice;
 
 			if ( my_ticket == this.max )
