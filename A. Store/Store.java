@@ -23,7 +23,7 @@ public class Store
 		this.lock_products.lock ();
 		try
 		{
-			System.out.println ( Thread.currentThread().getName()+" #"+" supply "+item);
+			//System.out.println ( Thread.currentThread().getName()+" #"+" supply "+item);
 			aux = this.products.get ( item );
 			if ( aux != null )
 			{
