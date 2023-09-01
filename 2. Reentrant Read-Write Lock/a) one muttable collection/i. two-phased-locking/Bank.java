@@ -232,7 +232,7 @@ public class Bank
 		total = 0.0;
 		bas = new ArrayList <> ();
 		
-		this.lock.readLock().lock ();
+		this.lock.writeLock().lock ();
 		try
 		{
 			for (int i : ids)
@@ -255,7 +255,7 @@ public class Bank
 		}
 		finally
 		{
-			this.lock.readLock().unlock();	
+			this.lock.writeLock().unlock();	
 		}
 
 		return total;
