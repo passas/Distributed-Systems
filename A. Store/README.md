@@ -7,7 +7,7 @@ This is not worth my effort; as long as missing definitions of porpose.
 It is worth to catch that a ReentrantLock is still an object afterwhile, and it's associated conditions can be multi-single distributed through existing objects of a Collection.
 
 
-### Where is my fucking ticket ?! ###
+## Where is my fucking ticket ?! ##
 Thread-0 # supply Chupeta
 
 Thread-1 # NULL Anel
