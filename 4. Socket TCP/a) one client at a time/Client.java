@@ -32,7 +32,7 @@ public class Client
             char_buf_socket_input = new BufferedReader ( byte_to_char_socket_input ); 
             
             //set server communication output
-            object_to_text = new PrintWriter( socket.getOutputStream() );
+            object_to_text_socket_output = new PrintWriter( socket.getOutputStream() );
 
             //set local-stdin communication input
             byte_to_char_stdin = new InputStreamReader ( System.in );
@@ -41,15 +41,15 @@ public class Client
             /*
              * Server Welcome Disclaimer
              */
-			System.out.println( input.readLine() );
+            System.out.println( char_buf_socket_input.readLine() );
             
-           	//Server Service
+            //Server Service
             while ( (line_stdin = char_buf_stdin.readLine()) != null ) //read stdin
             {
                 object_to_text_socket_output.println( line_stdin ); //put in socket output
                 object_to_text_socket_output.flush();               //flush it to server
 
-                line_socket_input = input.readLine();               //read from socket input
+                line_socket_input = char_buf_socket_input.readLine();               //read from socket input
                 System.out.println("Server answear: " + line_socket_input); //put in stdout
             }
             socket.shutdownOutput(); //send EoF <=> close socket output
@@ -57,11 +57,11 @@ public class Client
             /*
              * Server Good-Bye.
              */
-            line_socket_input = input.readLine(); //read from socket input
+            line_socket_input = char_buf_socket_input.readLine(); //read from socket input
             System.out.println("Server answear: " + line_socket_input); //put in stdout
 
             socket.shutdownInput(); //close socket input
-           	socket.close(); //close connection
+            socket.close(); //close connection
         }
         catch (Exception e)
         {
