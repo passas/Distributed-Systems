@@ -2,7 +2,7 @@
 
 No concurrency control.
 
-Single attendence.
+Single attendance.
 
 Contact serialization & deserialization.
 
@@ -14,3 +14,5 @@ ContactList serialization & deserialization.
 ### V3
 
 Concurrency control.
+
+Multiple attendance.
