@@ -22,14 +22,14 @@ public class ContactManager
     	this.contacts.put ( c.name(), c );
     }
 
-    /*public ContactList getContacts()
+    public ContactList getContacts()
     {
     	ContactList r;
 
-    	r = new ContactList <> ();
+    	r = new ContactList ();
     	for (Contact c : this.contacts.values())
     		r.add ( c );
 
     	return r;
-    }*/
+    }
 }
