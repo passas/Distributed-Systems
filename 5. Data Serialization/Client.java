@@ -35,6 +35,7 @@ public class Client {
         DataOutputStream output;
         //Service
         Contact contact;
+        ContactList contacts;
 
         //Command Line Interface
         InputStreamReader stdin;
@@ -54,6 +55,11 @@ public class Client {
             //Set-up client output
             output = new DataOutputStream ( socket.getOutputStream() );
 
+            //Server Welcome Procedure
+            contacts = ContactList.deserialize ( input );
+            for (Contact c : contacts)
+                System.out.println ( c );
+            //Speaking
             while ( (line = in.readLine()) != null )
             { //client CLI writting
                 contact = null;
