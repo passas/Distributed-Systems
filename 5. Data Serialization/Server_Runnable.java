@@ -30,8 +30,9 @@ public class Server_Runnable implements Runnable
             //Set-up server output
             output = new DataOutputStream ( socket.getOutputStream() );
             
-            //send contact list
-    
+            //send contact list (Welcome Server procedure)
+            this.contact_manager.getContacts().serialize ( output );
+        
             while ( (contact = Contact.deserialize( input )) != null )
             { //client is up
                 this.contact_manager.update ( contact );
