@@ -7,11 +7,11 @@ Single attendance.
 Contact serialization & deserialization.
 
 
-### V2 <-- wip
+### V2 
 
 ContactList serialization & deserialization.
 
-### V3
+### V3 <-- wip
 
 Concurrency control.
 
