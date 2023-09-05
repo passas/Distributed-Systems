@@ -3,12 +3,17 @@ import java.util.HashMap;
 
 import java.util.Arrays;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class ContactManager
 {
+
+    private ReentrantLock lock;
     private HashMap<String, Contact> contacts;
 
     public ContactManager()
     {
+        this.lock = new ReentrantLock ();
         this.contacts = new HashMap<>();
         
         //simulation
@@ -19,7 +24,15 @@ public class ContactManager
 
     public void update(Contact c)
     {
-    	this.contacts.put ( c.name(), c );
+        this.lock.lock ();
+        try
+        {
+        	this.contacts.put ( c.name(), c );
+        }
+        finally
+        {
+            this.lock.unlock ();
+        }
     }
 
     public ContactList getContacts()
@@ -27,9 +40,17 @@ public class ContactManager
     	ContactList r;
 
     	r = new ContactList ();
-    	for (Contact c : this.contacts.values())
-    		r.add ( c );
-
-    	return r;
+        this.lock.lock ();
+        try
+        {
+        	for (Contact c : this.contacts.values())
+        		r.add ( c );
+    
+        	return r;
+        }
+        finally
+        {
+            this.lock.unlock ();
+        }
     }
 }
