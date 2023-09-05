@@ -11,8 +11,8 @@ Contact serialization & deserialization.
 
 ContactList serialization & deserialization.
 
-### V3 <-- wip
+### V3
 
 Concurrency control.
 
-Multiple attendance.
+~~Multiple attendance.~~
